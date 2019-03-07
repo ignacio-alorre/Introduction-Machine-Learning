@@ -57,3 +57,18 @@ With unsupervised learning there is no feedback based on the prediction results.
 Here we have an example where we don’t really know what is the meaning of each gene, but we can cluster individuals based on the presence or absence of a particular gene.
 
 ![IntroML3](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/introML3.png)
+
+# Model
+
+Supervised Learning: Given the "right answer" for each example in the data
+
+Regression Problem: Predict "real-valued" output
+
+![Model 1](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/modelML1.png)
+
+To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function h : X -> Y so that h(x) is a “good” predictor for the corresponding value of y. For historical reasons, this function h is called a hypothesis. Seen pictorially, the process is therefore like this:
+
+![Model 2](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/modelML2.png)
+
+When the target variable that we’re trying to predict is continuous, such as in our housing example, we call the learning problem a regression problem. When y can take on only a small number of discrete values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a classification problem.
+
