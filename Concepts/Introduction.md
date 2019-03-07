@@ -76,7 +76,7 @@ When the target variable that we’re trying to predict is continuous, such as i
 
 He start with an hypothesis which can be written like:
 
-<img src="./Images/costML1.png" alt="drawing" width="350"/>
+<img src="./Images/costML1.png" alt="costML1" width="350"/>
 
 
 Our Task is to find out which are the best values for those parameters. Lets start with simple examples:
@@ -85,7 +85,7 @@ Our Task is to find out which are the best values for those parameters. Lets sta
 
 The goal is to find the parameters which can trace a function as close as possible to out trainning set. For example:
 
-<img src="./Images/costML3.png" alt="drawing" width="400"/>
+<img src="./Images/costML3.png" alt="costML3" width="400"/>
 
 A more accurate definition for a cost function:
 
@@ -93,27 +93,27 @@ A more accurate definition for a cost function:
 
 To recap:
 
-<img src="./Images/costML5.png" alt="drawing" width="400"/>
+<img src="./Images/costML5.png" alt="costML5" width="400"/>
 
 Lets follow an example where Ө0 = 0.
 
 First Ө1 = 1
 
-<img src="./Images/costML6.png" alt="drawing" width="500"/>
+<img src="./Images/costML6.png" alt="costML6" width="500"/>
 
 Then Ө1 = 0.5
 
-<img src="./Images/costML7.png" alt="drawing" width="400"/>
+<img src="./Images/costML7.png" alt="costML7" width="400"/>
 
 Now we place the results of J(Ө)
 
-<img src="./Images/costML8.png" alt="drawing" width="400"/>
+<img src="./Images/costML8.png" alt="costML8" width="400"/>
 
 **In case we have more than one Parameter**
 
 In case Ө0 != 0 the cost function will be plot in a 2D model, where all elements belonging to the same contour will have the same value for the cost function.
 
-<img src="./Images/costML9.png" alt="drawing" width="400"/>
+<img src="./Images/costML9.png" alt="costML9" width="400"/>
 
 Here an hypothesis really close to the minimum:
 
@@ -124,7 +124,7 @@ Here an hypothesis really close to the minimum:
 
 **Introduction**
 
-![Grad 1](./Images/gradML1.png)
+<img src="./Images/gradML1.png" alt="gradML1" width="350"/>
 
 With this initial values for Ө0 and Ө1 we can have a value for J like one under the red cross:
 
@@ -144,7 +144,7 @@ It is interesting to mention that if we start gradient descent a little bit to t
 
 This is how it looks like Gradient Descent Mathematically:
 
-![Grad 6](./Images/gradML6.png)
+<img src="./Images/gradML6.png" alt="gradML6" width="400"/>
 
 Some notes: 
 
@@ -172,7 +172,7 @@ It may be a problem when our learning algorithm reach a local minimum. Since it 
 
 As we approach a local minimum, gradient descent will automatically take smaller steps. So no need to decrease α over time. This is because when we approach to a minimum, the slope is less steep (in the local minimun will have 0 value). You can see this in the following image:
 
-![Grad 11](./Images/gradML11.png)
+<img src="./Images/gradML11.png" alt="gradML11" width="400"/>
 
 The partial derivatives can be expressed as:
 
@@ -184,7 +184,7 @@ And for an hypothesis with just Ө0 and Ө1 we can define each case like:
 
 And now we plug this terms in the Algorithm:
 
-![Grad 14](./Images/gradML14.png)
+<img src="./Images/gradML14.png" alt="gradML14" width="400"/>
 
 The Gradient Descent Cost Function (At least in Linear Regression) will have always a bowl-shape, since it is a convex function. This function doesn't have any local optimum, just the global optimum.
 
