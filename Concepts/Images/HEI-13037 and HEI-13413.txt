@@ -1,0 +1,379 @@
+Deployment steps for HEI-13037 and HEI-13413
+
+========================
+
+Summary:
+
+- New Import/R2D workflow (Run this one manually and add to coordinator)
+- Changes in Merge step, Cris data
+- Repository Creation (1 new hql, modify 3 existing)
+- Profile Enrichment
+- UDF function
+
+
+
+========================
+
+This Release contains 3 different modules
+
+In this task we will bring to emcg external customer profile (from cris)
+
+1 - Ingesting Historical Data
+2 - Ingesting Incremental Data
+3 - Modeling External Customer Profile
+
+1- 	INGESTING HISTORICAL Data
+
+It was necessary to create a new workflow named:
+
+** IngestingExternalCustomerProfile 
+----------------------------------
+
+http://10.232.154.13:8888/oozie/list_oozie_workflow/0112727-181014120241808-oozie-oozi-W/
+
+Workspace:
+
+http://10.232.154.13:8888/filebrowser/view=/apps/helix/conf/oozie/workspaces/wf_ingest_external_customer_profile
+
+
+Copy workspace files:
+
+helix_donothing.sh
+dbconnect
+
+HUE: 
+/apps/helix/conf/oozie/workspaces/wf_hist_ingest_external_customer_profile
+
+Git
+----
+C:\helixng\ingestion\import\sqoop\oozie\workflows\ImportHistoricalExternalCustomerProfile\hive-scripts
+C:\helixng\ingestion\import\sqoop\oozie\workflows\ImportHistoricalExternalCustomerProfile\shell-scripts 
+
+
+Sqoop command:
+
+import
+-D
+mapred.child.java.opts="-Djava.security.egd=file:/dev/../dev/urandom"
+--options-file
+${DBCONNECT}
+--query
+"SELECT * FROM EXTERNAL_CUSTOMER_PROFILE WHERE $CONDITIONS"
+--as-avrodatafile
+--class-name
+EXTERNAL_CUSTOMER_PROFILE 
+-m
+1
+--target-dir
+/data/helix/raw/cris/external_customer_profile/full
+--map-column-java
+CREATED=String,CHANGED=String
+
+
+**Pending the other one**
+
+
+Two subworkflows:
+
+- R2DExtCustProf
+- MergeExtCustProf
+
+
+R2DExtCustProf [R2DHistoricalExternalCustomerProfile]
+------------------------------------------------------
+
+It is necessaryt to copy the parameters as in (pay attention to the delete previous parth in the pig scripts): 
+
+http://10.232.154.13:8888/oozie/editor/workflow/edit/?workflow=f6986ed8-bdc8-3a51-d2e0-153f4964cea0
+
+Workspace:
+
+HUE
+------
+/apps/helix/conf/oozie/workspaces/wf_rawtodecompose_hist_external_cust_profile
+
+
+Git
+----
+C:\helixng\ingestion\raw-to-decomposed\oozie\workflows\RawToDecomposeHistoricalExternalCustomerProfile\hive-scripts
+C:\helixng\ingestion\raw-to-decomposed\oozie\workflows\RawToDecomposeHistoricalExternalCustomerProfile\shell-scripts
+C:\helixng\ingestion\raw-to-decomposed\oozie\workflows\RawToDecomposeHistoricalExternalCustomerProfile\pig-scripts
+
+
+...[TODO]
+
+
+MergeExtCustProf [MergeHistoricalExternalCustomerProfile]
+----------------------------------------------------------
+
+Workspace:
+
+HUE
+------
+/apps/helix/conf/oozie/workspaces/wf_merge_external_customer_profile
+
+Git
+----
+C:\helixng\batch\models\emcg\oozie\workflows\MergeHistoricalExternalCustomerProfile\hive-scripts
+C:\helixng\batch\models\emcg\oozie\workflows\MergeHistoricalExternalCustomerProfile\shell-scripts
+C:\helixng\batch\models\emcg\oozie\workflows\MergeHistoricalExternalCustomerProfile\pig-scripts
+
+...[TODO]
+
+
+=================================================================================
+
+
+For the udf:
+
+use emcg;
+DROP FUNCTION IF EXISTS  MostRelevantOalMap;
+CREATE FUNCTION MostRelevantOalMap AS 'com.emirates.helix.emcg.satellitedatapreparation.MostRelevantOalMap' 
+USING JAR 'hdfs:////apps/helix/udf/emcg/emcghiveudf-1.0.1.560.jar';
+reload MostRelevantOalMap;
+
+
+-- Testing the udf:
+
+SET mapreduce.job.queuename=model;
+
+SELECT COUNT(*) FROM
+(SELECT MostRelevantOalMap(oal_ffps) as oal_ffps_most_relevant FROM h_scv_person_master_20190226162600) t;
+
+
+
+
+Directories which should be create in Dev/Prod to store results
+=================================================================
+
+-- Raw External Customer Profile
+/data/helix/raw/cris/external_customer_profile/full/
+/data/helix/raw/cris/external_customer_profile/complete/
+
+
+-- Raw External Tier Mapping
+/data/helix/raw/cris/external_customer_profile/external_tier_mapping/full/ 
+
+
+
+-- Decomposed External Customer Profile
+/data/helix/decomposed/cris/external_customer_profile/full/
+
+
+-- Decomposed External Tier Mapping
+/data/helix/decomposed/cris/external_customer_profile/external_tier_mapping/full/
+
+
+
+-- Deduped External Customer Profile
+/data/helix/modelled/emcg/cris/external_customer_profile/full/ 
+
+-- Deduped External Tier Mapping
+/data/helix/modelled/emcg/cris/external_tier_mapping/full/ 
+
+
+Avro Files
+============
+
+
+-- Raw External Customer Profile
+
+HUE:
+/apps/helix/conf/avro/raw/cris/external_customer_profile/external_customer_profile_raw.avsc
+/apps/helix/conf/avro/raw/cris/external_customer_profile/external_customer_profile_raw_compl.avsc
+
+Git:
+C:\helixng\ingestion\import\sqoop\conf\avro\raw\cris\external_customer_profile
+C:\helixng\ingestion\import\sqoop\conf\avro\raw\cris\external_customer_profile_compl
+
+
+-- Raw External Tier Mapping
+
+HUE:
+/apps/helix/conf/avro/raw/cris/external_tier_mapping/external_tier_mapping_raw.avsc
+Git:
+C:\helixng\ingestion\import\sqoop\conf\avro\raw\cris\external_tier_mapping
+
+-- Decomposed/Deduped External Customer Profile
+
+HUE:
+/apps/helix/conf/avro/decomposed/cris/external_customer_profile/external_customer_profile_dec.avsc
+Git:
+C:\helixng\ingestion\raw-to-decomposed\conf\avro\decomposed\cris\external_customer_profile
+
+-- Decomposed/Deduped External Tier Mapping
+
+HUE:
+/apps/helix/conf/avro/decomposed/cris/external_tier_mapping/external_tier_mapping_dec.avsc
+Git:
+C:\helixng\ingestion\raw-to-decomposed\conf\avro\decomposed\cris\external_tier_mapping
+
+-- External Customer Profile Tier Mapping
+
+repository_extcustprof
+
+HUE: 
+/apps/helix/conf/avro/modelled/emcg/cris/external_customer_profile_tier_mapping/2019-02-10/external_customer_profile_tier_mapping.avsc
+Git: 
+\helixng\batch\models\emcg\conf\avro\cris\external_customer_profile\2019-02-10
+
+
+@@@@@@@@@@@@@@@@@@@@@@@ OLD VERSON @@@@@@@@@@@@@@@@@@@@
+HUE:
+/apps/helix/conf/avro/modelled/emcg/cris/external_customer_profile_tier_mapping/
+Git:
+C:\helixng\batch\models\emcg\conf\avro\cris\external_customer_profile
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
+With the new approach
+
+ImportExtCustProf:
+
+[Files will be just the helix_donothing.sh and the json]
+
+HUE:
+/apps/helix/conf/oozie/workspaces/wf_import_external_customer_profile
+
+Git:
+
+
+Sqoop Commands:
+
+Sqooping External Customer Profile
+------------------------------------
+
+delete: ${TARGET_DIR_EXTCUSTPROF}
+
+import
+-D
+mapred.child.java.opts="-Djava.security.egd=file:/dev/../dev/urandom"
+--options-file
+${DBCONNECT}
+--query
+"SELECT * FROM EXTERNAL_CUSTOMER_PROFILE WHERE $CONDITIONS"
+--as-avrodatafile
+--class-name
+EXTERNAL_CUSTOMER_PROFILE 
+-m
+1
+--target-dir
+${TARGET_DIR_EXTCUSTPROF}
+--map-column-java
+DOB=String,CREATED=String,CHANGED=String
+
+
+Sqooping External Tier Mapping
+----------------------------------
+
+delete: ${TARGET_DIR_EXTTIERMAP}
+
+import
+-D
+mapred.child.java.opts="-Djava.security.egd=file:/dev/../dev/urandom"
+--options-file
+${DBCONNECT}
+--query
+"SELECT * FROM EXTERNAL_TIERS_MAPPING WHERE $CONDITIONS"
+--as-avrodatafile
+--class-name
+EXTERNAL_TIERS_MAPPING
+-m
+1
+--target-dir
+${TARGET_DIR_EXTTIERMAP}
+--map-column-java
+CREATED=String
+
+
+
+R2DExtCustProf [R2DHistoricalExternalCustomerProfile]
+------------------------------------------------------
+
+It is necessaryt to copy the parameters as in (pay attention to the delete previous parth in the pig scripts): 
+
+http://10.232.154.13:8888/oozie/editor/workflow/edit/?workflow=f6986ed8-bdc8-3a51-d2e0-153f4964cea0
+
+Workspace:
+
+HUE
+------
+/apps/helix/conf/oozie/workspaces/wf_rawtodecompose_hist_external_cust_profile
+
+
+Git
+----
+C:\helixng\ingestion\raw-to-decomposed\oozie\workflows\RawToDecomposeHistoricalExternalCustomerProfile\hive-scripts
+C:\helixng\ingestion\raw-to-decomposed\oozie\workflows\RawToDecomposeHistoricalExternalCustomerProfile\shell-scripts
+C:\helixng\ingestion\raw-to-decomposed\oozie\workflows\RawToDecomposeHistoricalExternalCustomerProfile\pig-scripts
+
+
+IngestExtCustProf
+-------------------
+
+Hue:
+/apps/helix/conf/oozie/workspaces/wf_ingest_external_customer_profile
+
+
+** I sould also modify the permanent function file adding my new one **
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+Workspace for Merge Cris:
+
+C:\helixng\batch\models\emcg\oozie\workflows\MergeCRISData\pig-scripts
+
+Workspace for Repository Creation
+
+C:\helixng\batch\models\emcg\oozie\workflows\EmCGRepositoryCreation\hqls
+
+
+Workspace for Customer Profile Enrichment
+
+
+
+
+/////////////////////
+
+
+For the deployment:
+
+In EMCG (Workflows):
+
+http://dolinux767.hq.emirates.com:8888/oozie/editor/workflow/edit/?workflow=2142542
+http://dolinux767.hq.emirates.com:8888/oozie/editor/workflow/edit/?workflow=1954353
+http://dolinux767.hq.emirates.com:8888/oozie/editor/workflow/edit/?workflow=2159077
+
+In UAT (Workflows)
+
+http://dolinux767.hq.emirates.com:8888/oozie/editor/workflow/edit/?workflow=2309309
+http://dolinux767.hq.emirates.com:8888/oozie/editor/workflow/edit/?workflow=1897197
+http://dolinux767.hq.emirates.com:8888/oozie/editor/workflow/edit/?workflow=2143855
+
+
+The bkp wf:
+
+http://dolinux767.hq.emirates.com:8888/oozie/editor/workflow/edit/?workflow=2372069
+http://dolinux767.hq.emirates.com:8888/oozie/editor/workflow/edit/?workflow=2372048
+http://dolinux767.hq.emirates.com:8888/oozie/editor/workflow/edit/?workflow=2372086
+
+
+/////////////////////////////////////
+
+Link to these release:
+
+https://confluence.emirates.com/display/HEL/Helix+Release+v6.2.0
+
+
+For the ingestion:
+
+http://dolinux767.hq.emirates.com:8888/oozie/list_oozie_coordinator/2676863-181212143105585-oozie-oozi-C/
+
+
+
+/////////////////////
+
+
