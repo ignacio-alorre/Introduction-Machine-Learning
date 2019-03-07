@@ -1,4 +1,4 @@
-# Introduction
+# 1 - Introduction
 
 Machine Learning can be considered the field of study that gives computers the ability to learn without being explictly programmed. Another possible definition is:
 
@@ -58,7 +58,7 @@ Here we have an example where we don’t really know what is the meaning of each
 
 ![IntroML3](./Images/introML3.png)
 
-# Model
+# 2 - Model
 
 Supervised Learning: Given the "right answer" for each example in the data
 
@@ -72,7 +72,7 @@ To describe the supervised learning problem slightly more formally, our goal is,
 
 When the target variable that we’re trying to predict is continuous, such as in our housing example, we call the learning problem a regression problem. When y can take on only a small number of discrete values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a classification problem.
 
-# Cost Function
+# 3 - Cost Function
 
 He start with an hypothesis which can be written like:
 
@@ -120,7 +120,7 @@ Here an hypothesis really close to the minimum:
 ![Cost 10](./Images/costML10.png)
 
 
-# Gradient Descent
+# 4 - Gradient Descent
 
 **Introduction**
 
