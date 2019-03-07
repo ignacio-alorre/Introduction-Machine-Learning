@@ -33,11 +33,11 @@ Example 2:
 
 Regression Example: From the given values (red crosses) you define a function which goes through the most of them. There are several options as you can see (blue and purple line)
 
-[IMAGE HERE]
+![IntroML1](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/IntroML1.png)
 
 Classification Example: Malignant cancer are the red crosses and benign the blue crosses.
 
-[IMAGE HERE]
+![IntroML2](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/IntroML2.png)
 
 ## Unsupervised Learning 
 
@@ -45,4 +45,4 @@ Unsupervised learning allows us to approach problems with little or no idea what
 
 Here we have an example where we don’t really know what is the meaning of each gene, but we can cluster individuals based on the presence or ausence of a particular gene.
 
-[IMAGE 3]
+![IntroML3](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/IntroML3.png)
