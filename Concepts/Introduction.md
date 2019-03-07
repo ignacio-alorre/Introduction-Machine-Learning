@@ -99,21 +99,21 @@ Lets follow an example where Ө0 = 0.
 
 First Ө1 = 1
 
-![Cost 6](./Images/costML6.png)
+<img src="./Images/costML6.png" alt="drawing" width="400"/>
 
 Then Ө1 = 0.5
 
-![Cost 7](./Images/costML7.png)
+<img src="./Images/costML7.png" alt="drawing" width="400"/>
 
 Now we place the results of J(Ө)
 
-![Cost 8](./Images/costML8.png)
+<img src="./Images/costML8.png" alt="drawing" width="400"/>
 
 **In case we have more than one Parameter**
 
 In case Ө0 != 0 the cost function will be plot in a 2D model, where all elements belonging to the same contour will have the same value for the cost function.
 
-![Cost 9](./Images/costML9.png)
+<img src="./Images/costML9.png" alt="drawing" width="400"/>
 
 Here an hypothesis really close to the minimum:
 
