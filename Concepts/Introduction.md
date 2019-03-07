@@ -76,7 +76,7 @@ When the target variable that we’re trying to predict is continuous, such as i
 
 He start with an hypothesis which can be written like:
 
-<img src="./Images/costML1.png" alt="drawing" width="250"/>
+<img src="./Images/costML1.png" alt="drawing" width="350"/>
 
 
 Our Task is to find out which are the best values for those parameters. Lets start with simple examples:
@@ -85,7 +85,7 @@ Our Task is to find out which are the best values for those parameters. Lets sta
 
 The goal is to find the parameters which can trace a function as close as possible to out trainning set. For example:
 
-![Cost 3](./Images/costML3.png)
+<img src="./Images/costML3.png" alt="drawing" width="400"/>
 
 A more accurate definition for a cost function:
 
@@ -93,7 +93,7 @@ A more accurate definition for a cost function:
 
 To recap:
 
-![Cost 5](./Images/costML5.png)
+<img src="./Images/costML5.png" alt="drawing" width="400"/>
 
 Lets follow an example where Ө0 = 0.
 
