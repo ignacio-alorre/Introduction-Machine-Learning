@@ -176,11 +176,11 @@ As we approach a local minimum, gradient descent will automatically take smaller
 
 The partial derivatives can be expressed as:
 
-![Grad 12](./Images/gradML12.png)
+<img src="./Images/gradML12.png" alt="gradML12" width="400"/>
 
 And for an hypothesis with just Ө0 and Ө1 we can define each case like:
 
-![Grad 13](./Images/gradML13.png)
+<img src="./Images/gradML13.png" alt="gradML13" width="400"/>
 
 And now we plug this terms in the Algorithm:
 
