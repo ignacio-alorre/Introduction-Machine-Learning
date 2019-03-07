@@ -189,11 +189,15 @@ The Gradient Descent Cost Function (At least in Linear Regression) will have alw
 
 ![Grad 15](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML15.png)
 
+![Grad 15](./Images/gradML15.png)
+
+![Grad 15](/Images/gradML15.png)
+
 ![Grad 15](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML15.png =200x400)
 
 ![Grad 15](./Images/gradML15.png =200x400)
 
-<img src="/Images/gradML15.png" alt="drawing" width="200"/>
+<img src="./Images/gradML15.png" alt="drawing" width="200"/>
 
 <img src="https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML15.png" alt="drawing" width="200"/>
 
