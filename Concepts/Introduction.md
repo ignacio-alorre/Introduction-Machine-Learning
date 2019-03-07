@@ -99,7 +99,7 @@ Lets follow an example where Ө0 = 0.
 
 First Ө1 = 1
 
-<img src="./Images/costML6.png" alt="drawing" width="400"/>
+<img src="./Images/costML6.png" alt="drawing" width="500"/>
 
 Then Ө1 = 0.5
 
