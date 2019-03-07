@@ -117,3 +117,84 @@ In case Ө0 != 0 the cost function will be plot in a 2D model, where all element
 Here an hypothesis really close to the minimum:
 
 ![Cost 10](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/costML10.png)
+
+
+# Gradient Descent
+
+**Introduction**
+
+![Grad 1](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML1.png)
+
+With this initial values for Ө0 and Ө1 we can have a value for J like one under the red cross:
+
+![Grad 2](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML2.png)
+
+So the goal now is to decide in what direction we should take a "baby step" to get closer to a minimum. Like this:
+
+![Grad 3](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML3.png)
+
+Then you continue taking "baby steps" until you reach a minimum in the function
+
+![Grad 4](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML4.png)
+
+It is interesting to mention that if we start gradient descent a little bit to the right, the result may change drastically
+
+![Grad 5](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML5.png)
+
+This is how it looks like Gradient Descent Mathematically:
+
+![Grad 6](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML6.png)
+
+Some notes: 
+
+* The operator := is an assigment. For example in a := b, means assign to a the value of b. This is different than a = b, where we make an Truth Assertion.
+* The parameter α is the learning rate, and determine how big each "baby step" will be during the learning process.
+* Gradient descent first compute the new value of Ө0 and Ө1 and then simultaneously updates Ө0 and Ө1. Not first compute and update Ө0 and later Ө1.
+
+**Intuition of the derivative term**
+
+![Grad 7](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML7.png)
+
+Let's assume we have a single parameter Ө1. In the red dot of the function the derivative term will give us the slope of the red tangent. We can see for this particular example the slope is positive, so we will substract a value from the current Ө1 value (so we will move it to the left for the next iteration).
+
+![Grad 8](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML8.png)
+
+For this other example, the derivative term has a negative value, so we will move Ө1 to the right. We can see in both cases we are moving to the minimum in each iteration.
+
+We need to be careful when choosing the learning rate. Here are some examples of what may happen in case we choose this learning rate too big or too small.
+
+![Grad 9](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML9.png)
+
+It may be a problem when our learning algorithm reach a local minimum. Since it will not be able to keep iterating (looking for the global minimum)
+
+![Grad 10](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML10.png)
+
+As we approach a local minimum, gradient descent will automatically take smaller steps. So no need to decrease α over time. This is because when we approach to a minimum, the slope is less steep (in the local minimun will have 0 value). You can see this in the following image:
+
+![Grad 11](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML11.png)
+
+The partial derivatives can be expressed as:
+
+![Grad 12](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML12.png)
+
+And for an hypothesis with just Ө0 and Ө1 we can define each case like:
+
+![Grad 13](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML13.png)
+
+And now we plug this terms in the Algorithm:
+
+![Grad 14](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML14.png)
+
+The Gradient Descent Cost Function (At least in Linear Regression) will have always a bowl-shape, since it is a convex function. This function doesn't have any local optimum, just the global optimum.
+
+![Grad 15](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML15.png)
+
+If possible make a gif with video: Gradient Descent For Linear Regression, form min 6.30.
+
+This algorithm sometimes is called also Batch Gradient Descent
+
+"Batch": Each step of gradient descent uses all the training examples. You can see it is always the sum of the m training samples. There are other versions of the algorithm which don't use all the training examples.
+
+
+
+
