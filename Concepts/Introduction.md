@@ -29,20 +29,31 @@ We could turn this example into a classification problem by instead making our o
 
 * Example 2:
 
-(a) Regression - Given a picture of a person, we have to predict their age on the basis of the given picture (b) Classification - Given a patient with a tumor, we have to predict whether the tumor is malignant or benign
+* (a) **Regression** - Given a picture of a person, we have to predict their age on the basis of the given picture 
+* (b) **Classification** - Given a patient with a tumor, we have to predict whether the tumor is malignant or benign
 
-Regression Example: From the given values (red crosses) you define a function which goes through the most of them. There are several options as you can see (blue and purple line)
+**Regression Example**: From the given values (red crosses) you define a function which goes through the most of them. There are several options as you can see (blue and purple line)
 
 ![IntroML1](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/introML1.png)
 
-Classification Example: Malignant cancer are the red crosses and benign the blue crosses.
+**Classification Example**: Malignant cancer are the red crosses and benign the blue crosses.
 
 ![IntroML2](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/introML2.png)
 
 ## Unsupervised Learning 
 
-Unsupervised learning allows us to approach problems with little or no idea what our results should look like. We can derive structure from data where we don't necessarily know the effect of the variables. We can derive this structure by clustering the data based on relationships among the variables in the data. With unsupervised learning there is no feedback based on the prediction results. Example: Clustering: Take a collection of 1,000,000 different genes, and find a way to automatically group these genes into groups that are somehow similar or related by different variables, such as lifespan, location, roles, and so on. Non-clustering: The "Cocktail Party Algorithm", allows you to find structure in a chaotic environmentA. (i.e. identifying individual voices and music from a mesh of sounds at a cocktail party).
+Unsupervised learning allows us to approach problems with little or no idea what our results should look like. We can derive structure from data where we don't necessarily know the effect of the variables. 
 
-Here we have an example where we don’t really know what is the meaning of each gene, but we can cluster individuals based on the presence or ausence of a particular gene.
+We can derive this structure by clustering the data based on relationships among the variables in the data. 
+
+With unsupervised learning there is no feedback based on the prediction results. 
+
+* **Example:**
+
+**Clustering**: Take a collection of 1,000,000 different genes, and find a way to automatically group these genes into groups that are somehow similar or related by different variables, such as lifespan, location, roles, and so on. 
+
+**Non-clustering**: The "Cocktail Party Algorithm", allows you to find structure in a chaotic environmentA. (i.e. identifying individual voices and music from a mesh of sounds at a cocktail party).
+
+Here we have an example where we don’t really know what is the meaning of each gene, but we can cluster individuals based on the presence or absence of a particular gene.
 
 ![IntroML3](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/introML3.png)
