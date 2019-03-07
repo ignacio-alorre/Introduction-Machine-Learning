@@ -189,6 +189,8 @@ The Gradient Descent Cost Function (At least in Linear Regression) will have alw
 
 ![Grad 15](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML15.png)
 
+![Grad 15](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/gradML15.png | width="200" height="400")
+
 If possible make a gif with video: Gradient Descent For Linear Regression, form min 6.30.
 
 This algorithm sometimes is called also Batch Gradient Descent
