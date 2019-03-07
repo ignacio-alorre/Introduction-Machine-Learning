@@ -97,11 +97,11 @@ To recap:
 
 Lets follow an example where Ө0 = 0.
 
-First Ө1 = 1
+* First Ө1 = 1
 
 <img src="./Images/costML6.png" alt="costML6" width="500"/>
 
-Then Ө1 = 0.5
+* Then Ө1 = 0.5
 
 <img src="./Images/costML7.png" alt="costML7" width="400"/>
 
