@@ -72,3 +72,48 @@ To describe the supervised learning problem slightly more formally, our goal is,
 
 When the target variable that we’re trying to predict is continuous, such as in our housing example, we call the learning problem a regression problem. When y can take on only a small number of discrete values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a classification problem.
 
+# Cost Function
+
+He start with an hypothesis which can be written like:
+
+![Cost 1](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/costML1.png)
+
+Our Task is to find out which are the best values for those parameters. Lets start with simple examples:
+
+![Cost 2](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/costML2.png)
+
+The goal is to find the parameters which can trace a function as close as possible to out trainning set. For example:
+
+![Cost 3](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/costML3.png)
+
+A more accurate definition for a cost function:
+
+![Cost 4](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/costML4.png)
+
+To recap:
+
+![Cost 5](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/costML5.png)
+
+Lets follow an example where Ө0 = 0.
+
+First Ө1 = 1
+
+![Cost 6](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/costML6.png)
+
+Then Ө1 = 0.5
+
+![Cost 7](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/costML7.png)
+
+Now we place the results of J(Ө)
+
+![Cost 8](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/costML8.png)
+
+**In case we have more than one Parameter**
+
+In case Ө0 != 0 the cost function will be plot in a 2D model, where all elements belonging to the same contour will have the same value for the cost function.
+
+![Cost 9](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/costML9.png)
+
+Here an hypothesis really close to the minimum:
+
+![Cost 10](https://github.com/ignacio-alorre/Machine-Learning/blob/master/Concepts/Images/costML10.png)
