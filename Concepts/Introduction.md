@@ -48,11 +48,11 @@ We can derive this structure by clustering the data based on relationships among
 
 With unsupervised learning there is no feedback based on the prediction results. 
 
-* **Example:**
+**Example:**
 
-**Clustering**: Take a collection of 1,000,000 different genes, and find a way to automatically group these genes into groups that are somehow similar or related by different variables, such as lifespan, location, roles, and so on. 
+* **Clustering**: Take a collection of 1,000,000 different genes, and find a way to automatically group these genes into groups that are somehow similar or related by different variables, such as lifespan, location, roles, and so on. 
 
-**Non-clustering**: The "Cocktail Party Algorithm", allows you to find structure in a chaotic environmentA. (i.e. identifying individual voices and music from a mesh of sounds at a cocktail party).
+* **Non-clustering**: The "Cocktail Party Algorithm", allows you to find structure in a chaotic environmentA. (i.e. identifying individual voices and music from a mesh of sounds at a cocktail party).
 
 Here we have an example where we don’t really know what is the meaning of each gene, but we can cluster individuals based on the presence or absence of a particular gene.
 
