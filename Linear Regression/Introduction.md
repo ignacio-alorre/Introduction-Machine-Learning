@@ -56,7 +56,7 @@ With unsupervised learning there is no feedback based on the prediction results.
 
 Here we have an example where we don’t really know what is the meaning of each gene, but we can cluster individuals based on the presence or absence of a particular gene.
 
-![IntroML3](./_Images/LinearRegression/introML3.png)
+![IntroML3](/_Images/LinearRegression/introML3.png)
 
 # 2 - Model
 
@@ -64,11 +64,11 @@ Supervised Learning: Given the "right answer" for each example in the data
 
 Regression Problem: Predict "real-valued" output
 
-![Model 1](./_Images/LinearRegression/modelML1.png)
+![Model 1](/_Images/LinearRegression/modelML1.png)
 
 To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function h : X -> Y so that h(x) is a “good” predictor for the corresponding value of y. For historical reasons, this function h is called a hypothesis. Seen pictorially, the process is therefore like this:
 
-![Model 2](./_Images/LinearRegression/modelML2.png)
+![Model 2](/_Images/LinearRegression/modelML2.png)
 
 When the target variable that we’re trying to predict is continuous, such as in our housing example, we call the learning problem a regression problem. When y can take on only a small number of discrete values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a classification problem.
 
@@ -76,75 +76,75 @@ When the target variable that we’re trying to predict is continuous, such as i
 
 He start with an hypothesis which can be written like:
 
-<img src="./_Images/LinearRegression/costML1.png" alt="costML1" width="350"/>
+<img src="/_Images/LinearRegression/costML1.png" alt="costML1" width="350"/>
 
 
 Our Task is to find out which are the best values for those parameters. Lets start with simple examples:
 
-![Cost 2](./_Images/LinearRegression/costML2.png)
+![Cost 2](/_Images/LinearRegression/costML2.png)
 
 The goal is to find the parameters which can trace a function as close as possible to out trainning set. For example:
 
-<img src="./_Images/LinearRegression/costML3.png" alt="costML3" width="400"/>
+<img src="/_Images/LinearRegression/costML3.png" alt="costML3" width="400"/>
 
 A more accurate definition for a cost function:
 
-![Cost 4](./_Images/LinearRegression/costML4.png)
+![Cost 4](/_Images/LinearRegression/costML4.png)
 
 To recap:
 
-<img src="./_Images/LinearRegression/costML5.png" alt="costML5" width="400"/>
+<img src="/_Images/LinearRegression/costML5.png" alt="costML5" width="400"/>
 
 Lets follow an example where Ө0 = 0.
 
 * First Ө1 = 1
 
-<img src="./_Images/LinearRegression/costML6.png" alt="costML6" width="500"/>
+<img src="/_Images/LinearRegression/costML6.png" alt="costML6" width="500"/>
 
 * Then Ө1 = 0.5
 
-<img src="./_Images/LinearRegression/costML7.png" alt="costML7" width="400"/>
+<img src="/_Images/LinearRegression/costML7.png" alt="costML7" width="400"/>
 
 Now we place the results of J(Ө)
 
-<img src="./_Images/LinearRegression/costML8.png" alt="costML8" width="400"/>
+<img src="/_Images/LinearRegression/costML8.png" alt="costML8" width="400"/>
 
 **In case we have more than one Parameter**
 
 In case Ө0 != 0 the cost function will be plot in a 2D model, where all elements belonging to the same contour will have the same value for the cost function.
 
-<img src="./_Images/LinearRegression/costML9.png" alt="costML9" width="400"/>
+<img src="/_Images/LinearRegression/costML9.png" alt="costML9" width="400"/>
 
 Here an hypothesis really close to the minimum:
 
-![Cost 10](./_Images/LinearRegression/costML10.png)
+![Cost 10](/_Images/LinearRegression/costML10.png)
 
 
 # 4 - Gradient Descent
 
 **Introduction**
 
-<img src="./_Images/LinearRegression/gradML1.png" alt="gradML1" width="350"/>
+<img src="/_Images/LinearRegression/gradML1.png" alt="gradML1" width="350"/>
 
 With this initial values for Ө0 and Ө1 we can have a value for J like one under the red cross:
 
-![Grad 2](./_Images/LinearRegression/gradML2.png)
+![Grad 2](/_Images/LinearRegression/gradML2.png)
 
 So the goal now is to decide in what direction we should take a "baby step" to get closer to a minimum. Like this:
 
-![Grad 3](./_Images/LinearRegression/gradML3.png)
+![Grad 3](/_Images/LinearRegression/gradML3.png)
 
 Then you continue taking "baby steps" until you reach a minimum in the function
 
-![Grad 4](./_Images/LinearRegression/gradML4.png)
+![Grad 4](/_Images/LinearRegression/gradML4.png)
 
 It is interesting to mention that if we start gradient descent a little bit to the right, the result may change drastically
 
-![Grad 5](./_Images/LinearRegression/gradML5.png)
+![Grad 5](/_Images/LinearRegression/gradML5.png)
 
 This is how it looks like Gradient Descent Mathematically:
 
-<img src="./_Images/LinearRegression/gradML6.png" alt="gradML6" width="400"/>
+<img src="/_Images/LinearRegression/gradML6.png" alt="gradML6" width="400"/>
 
 Some notes: 
 
@@ -154,41 +154,41 @@ Some notes:
 
 **Intuition of the derivative term**
 
-![Grad 7](./_Images/LinearRegression/gradML7.png)
+![Grad 7](/_Images/LinearRegression/gradML7.png)
 
 Let's assume we have a single parameter Ө1. In the red dot of the function the derivative term will give us the slope of the red tangent. We can see for this particular example the slope is positive, so we will substract a value from the current Ө1 value (so we will move it to the left for the next iteration).
 
-![Grad 8](./_Images/LinearRegression/gradML8.png)
+![Grad 8](/_Images/LinearRegression/gradML8.png)
 
 For this other example, the derivative term has a negative value, so we will move Ө1 to the right. We can see in both cases we are moving to the minimum in each iteration.
 
 We need to be careful when choosing the learning rate. Here are some examples of what may happen in case we choose this learning rate too big or too small.
 
-![Grad 9](./_Images/LinearRegression/gradML9.png)
+![Grad 9](/_Images/LinearRegression/gradML9.png)
 
 It may be a problem when our learning algorithm reach a local minimum. Since it will not be able to keep iterating (looking for the global minimum)
 
-![Grad 10](./_Images/LinearRegression/gradML10.png)
+![Grad 10](/_Images/LinearRegression/gradML10.png)
 
 As we approach a local minimum, gradient descent will automatically take smaller steps. So no need to decrease α over time. This is because when we approach to a minimum, the slope is less steep (in the local minimun will have 0 value). You can see this in the following image:
 
-<img src="./_Images/LinearRegression/gradML11.png" alt="gradML11" width="400"/>
+<img src="/_Images/LinearRegression/gradML11.png" alt="gradML11" width="400"/>
 
 The partial derivatives can be expressed as:
 
-<img src="./_Images/LinearRegression/gradML12.png" alt="gradML12" width="400"/>
+<img src="/_Images/LinearRegression/gradML12.png" alt="gradML12" width="400"/>
 
 And for an hypothesis with just Ө0 and Ө1 we can define each case like:
 
-<img src="./_Images/LinearRegression/gradML13.png" alt="gradML13" width="400"/>
+<img src="/_Images/LinearRegression/gradML13.png" alt="gradML13" width="400"/>
 
 And now we plug this terms in the Algorithm:
 
-<img src="./_Images/LinearRegression/gradML14.png" alt="gradML14" width="400"/>
+<img src="/_Images/LinearRegression/gradML14.png" alt="gradML14" width="400"/>
 
 The Gradient Descent Cost Function (At least in Linear Regression) will have always a bowl-shape, since it is a convex function. This function doesn't have any local optimum, just the global optimum.
 
-![Grad 15](./_Images/LinearRegression/gradML15.png)
+![Grad 15](/_Images/LinearRegression/gradML15.png)
 
 If possible make a gif with video: Gradient Descent For Linear Regression, form min 6.30.
 
