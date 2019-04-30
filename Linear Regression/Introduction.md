@@ -35,6 +35,8 @@ We could turn this example into a classification problem by instead making our o
 **Regression Example**: From the given values (red crosses) you define a function which goes through the most of them. There are several options as you can see (blue and purple line)
 
 ![IntroML1](../__Images/LinearRegression/introML1.png)
+![IntroML1](./__Images/LinearRegression/introML1.png)
+![IntroML1](/__Images/LinearRegression/introML1.png)
 
 **Classification Example**: Malignant cancer are the red crosses and benign the blue crosses.
 
