@@ -34,7 +34,7 @@ We could turn this example into a classification problem by instead making our o
 
 **Regression Example**: From the given values (red crosses) you define a function which goes through the most of them. There are several options as you can see (blue and purple line)
 
-![IntroML1](./Images/introML1.png)
+![IntroML1](./_Images/LinearRegression/introML1.png)
 
 **Classification Example**: Malignant cancer are the red crosses and benign the blue crosses.
 
@@ -195,7 +195,3 @@ If possible make a gif with video: Gradient Descent For Linear Regression, form 
 This algorithm sometimes is called also Batch Gradient Descent
 
 "Batch": Each step of gradient descent uses all the training examples. You can see it is always the sum of the m training samples. There are other versions of the algorithm which don't use all the training examples.
-
-
-
-
