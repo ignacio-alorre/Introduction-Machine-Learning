@@ -40,7 +40,7 @@ We can simply the Cost function in one single line
 
 We want to fit the parameters to minimize J(Ө)
 
-<img src="/_Images/LogisticRegressionModel/lm12.png" alt="LM12" width="450"/>
+<img src="/_Images/LogisticRegressionModel/lm12.png" alt="LM12" width="150"/>
 
 To make a prediction given new x
 
@@ -52,17 +52,17 @@ The way to minimize the cost function is by using Gradient Descent
 
 The Algorithm looks identical to linear regression, however the definion of the hypothesis has changed
 
-<img src="/_Images/LogisticRegressionModel/lm15.png" alt="LM15" width="450"/>
+<img src="/_Images/LogisticRegressionModel/lm15.png" alt="LM15" width="300"/>
 
 Suppose you are running Gradient Descent to fit logistic regression model with parameter Ө Є Rn+1.Which of the followings 
 is a reasonable way to make sure the learning rate α is set properly and the gradient descent is running correctly
 
-<img src="/_Images/LogisticRegressionModel/lm16.png" alt="LM16" width="450"/>
+<img src="/_Images/LogisticRegressionModel/lm16.png" alt="LM16" width="900"/>
 <img src="/_Images/LogisticRegressionModel/lm17.png" alt="LM17" width="450"/>
 
 ### Advance Optimization
 
-<img src="/_Images/LogisticRegressionModel/lm18.png" alt="LM18" width="450"/>
+<img src="/_Images/LogisticRegressionModel/lm18.png" alt="LM18" width="350"/>
 
 The last three algorithms have a number of advantages.
 
@@ -88,4 +88,4 @@ Then you can call advance optimization functions:
 
 fminunc: Function minimization unconstrain. It will return an exitflag = 1 in case the algorithm converge.
 
-<img src="/_Images/LogisticRegressionModel/lm23.png" alt="LM23" width="800"/>
+<img src="/_Images/LogisticRegressionModel/lm23.png" alt="LM23" width="900"/>
