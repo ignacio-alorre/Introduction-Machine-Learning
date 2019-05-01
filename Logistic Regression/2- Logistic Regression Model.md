@@ -12,23 +12,23 @@ Since the Sigmoid function is non linear, it will produce non convex cost functi
 
 <img src="/_Images/LogisticRegressionModel/lm3.png" alt="LM3" width="450"/>
 
-So to be able to apply gradient descent and get a convex cost function, we are going to use the following cost function
-
 <img src="/_Images/LogisticRegressionModel/lm4.png" alt="LM4" width="450"/>
 
-Which graphically looks like this:
+So to be able to apply gradient descent and get a convex cost function, we are going to use the following cost function
 
 <img src="/_Images/LogisticRegressionModel/lm5.png" alt="LM5" width="450"/>
 
-This cost function has got some desirable properties. It penalize a lot false positives or false negative:
+Which graphically looks like this:
 
 <img src="/_Images/LogisticRegressionModel/lm6.png" alt="LM6" width="450"/>
 
 <img src="/_Images/LogisticRegressionModel/lm7.png" alt="LM7" width="450"/>
 
-### Simplied Cost Function and Gradient Descent
+This cost function has got some desirable properties. It penalize a lot false positives or false negative:
 
 <img src="/_Images/LogisticRegressionModel/lm8.png" alt="LM8" width="450"/>
+
+### Simplied Cost Function and Gradient Descent
 
 We can simply the Cost function in one single line
 
