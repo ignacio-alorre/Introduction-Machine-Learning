@@ -88,4 +88,4 @@ Then you can call advance optimization functions:
 
 fminunc: Function minimization unconstrain. It will return an exitflag = 1 in case the algorithm converge.
 
-<img src="/_Images/LogisticRegressionModel/lm23.png" alt="LM23" width="450"/>
+<img src="/_Images/LogisticRegressionModel/lm23.png" alt="LM23" width="800"/>
