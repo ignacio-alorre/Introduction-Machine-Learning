@@ -39,7 +39,8 @@ For example, if we have a model with one single features and m training samples 
 
 <img src="/_Images/NormalEquation/ne9.png" alt="NE9" width="450"/>
 
-Some notes about the Normal Equation
+
+### Some notes about the Normal Equation
 
 <img src="/_Images/NormalEquation/ne10.png" alt="NE10" width="450"/>
 
@@ -57,7 +58,7 @@ Which can be achieved in octave like:
 	* Redundant features(linearly dependent), like x1 =size in feet2 and     x2 = size in m2.
 	* In case there are too many features (m<n). We need to delete some features or use regularization.
   
-#When to use Gradient Descent and when to use Normal Equation
+### When to use Gradient Descent and when to use Normal Equation
 
 <img src="/_Images/NormalEquation/ne13.png" alt="NE13" width="450"/>
 
