@@ -2,8 +2,8 @@
 
   * This example is underfit, or has high bias. Basically it means we have a very strong preconception that the prize of the houses 
   will be very linearly with the size.
-	* This example match quite good
-	* This example has overfitting, or has high variance.
+  * This example match quite good
+  * This example has overfitting, or has high variance.
   
 <img src="/_Images/OverfittingProblem/of1.png" alt="CR1" width="450"/>
 
