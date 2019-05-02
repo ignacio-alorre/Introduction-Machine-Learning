@@ -4,7 +4,7 @@
 
 We will need to use this technique instead of Linear or Logistic Regression when we to learn complex non linear hypothesis.
 
-<img src="/_Images/NeuralNetworks/nn1.png" alt="NN1" width="450"/>
+<img src="/_Images/NeuralNetworks/mo1.png" alt="NN1" width="450"/>
 
 For this case we can start taking features like:
 
