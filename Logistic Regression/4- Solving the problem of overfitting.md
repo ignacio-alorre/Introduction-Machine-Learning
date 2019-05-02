@@ -70,7 +70,7 @@ We can regroup the last term like this:
 
 Where the following term use to be a little bit smaller than 1, like 0.99. which will shrink Өj
 
-<img src="/_Images/OverfittingProblem/of9.png" alt="CR9" width="450"/>
+<img src="/_Images/OverfittingProblem/of9.png" alt="CR9" width="150"/>
 
 ### In the case of Normal Equation
 
@@ -94,3 +94,4 @@ Plot the following equation as a function of the number of iterations and make s
 
 <img src="/_Images/OverfittingProblem/of13.png" alt="CR13" width="450"/>
 
+<img src="/_Images/OverfittingProblem/of14.png" alt="CR14" width="450"/>
