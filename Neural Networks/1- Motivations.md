@@ -4,6 +4,8 @@
 
 We will need to use this technique instead of Linear or Logistic Regression when we to learn complex non linear hypothesis.
 
+<img src="/_Images/NeuralNetworks/nn1.png" alt="NN1" width="450"/>
+
 For this case we can start taking features like:
 
 x12 +x1*x2 + x1+x3+…+x1*x100 + x22 + x2*x3+…+x2*x100
