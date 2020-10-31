@@ -2,7 +2,7 @@
 
 This repository contains a personal summary with what I considered the most relevant parts of the course [Machine Learning](https://www.coursera.org/learn/machine-learning), instructed by Andrew Ng.
 
-The purpose of the repository is a personal quick reference to the key concepts I learned during the course.
+The purpose of the repository is to be used as personal quick reference to the key concepts I learnt during the course.
 
 ## Index of the Repository
 
