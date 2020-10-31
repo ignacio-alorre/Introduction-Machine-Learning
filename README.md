@@ -4,7 +4,7 @@ This repository contains a personal summary with what I considered the most rele
 
 The purpose of the repository is a personal quick reference to the key concepts I learned during the course.
 
-Index of the Repository
+## Index of the Repository
 
 * Linear Regression
     * [Introduction](https://github.com/ignacio-alorre/Machine-Learning/wiki/Linear-Regression-Introduction)
